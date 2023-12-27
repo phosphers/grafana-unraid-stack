@@ -12,11 +12,17 @@ ENV LOKI_PORT 3100
 ENV PROMTAIL_PORT 9086
 ENV GRAFANA_PORT 3006
 
+## add variable for incoming collectd port
+## this is data coming INTO the container
+ENV COLLECTD_PORT 25827
+
 EXPOSE ${GRAFANA_PORT}/tcp \
     ${LOKI_PORT}/tcp \
     ${PROMTAIL_PORT}/tcp \
     ${INFLUXDB_HTTP_PORT}/tcp \
-    ${INFLUXDB_RPC_PORT}/tcp
+    ${INFLUXDB_RPC_PORT}/tcp \
+    ## collectd port is udb
+    ${COLLECTD_PORT}/udp
 
 ## build note ##
 RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM}:${TAG}" >> /build.info
