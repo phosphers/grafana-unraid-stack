@@ -21,7 +21,7 @@ EXPOSE ${GRAFANA_PORT}/tcp \
     ${PROMTAIL_PORT}/tcp \
     ${INFLUXDB_HTTP_PORT}/tcp \
     ${INFLUXDB_RPC_PORT}/tcp \
-    ## collectd port is udb
+    ## collectd port is udp
     ${COLLECTD_PORT}/udp
 
 ## build note ##
